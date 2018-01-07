@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-framework="angularjs">
+<head>
+    <meta charset="utf-8">
+    <title>Symfony2 Rest Api Client</title>
+    {% stylesheets output='js/styles'
+    "@AcmeApiClientBundle/Resources/public/css/main.css"
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all"/>
+    {% endstylesheets %}
+    <script>
+        var root_path = "{{ asset('', null, true) }}";
+        var assets_path = root_path + "bundles/acmeapiclient/partials";
+    </script>
+</head>
+
+<body ng-app="ApiClient">
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">
+                    Rest Api Client
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div ng-view class="container">
+    <!-- ANGULAR CONTENT GOES HERE -->
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha512.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
+
+{% javascripts output='js/client'
+"@AcmeApiClientBundle/Resources/public/components/angular/angular.js"
+"@AcmeApiClientBundle/Resources/public/components/angular-route/angular-route.js"
+"@AcmeApiClientBundle/Resources/public/components/angular-cookies/angular-cookies.js"
+"@AcmeApiClientBundle/Resources/public/components/lodash/dist/lodash.js"
+"@AcmeApiClientBundle/Resources/public/components/restangular/dist/restangular.js"
+"@AcmeApiClientBundle/Resources/public/components/angular-bootstrap/ui-bootstrap-tpls.js"
+"@AcmeApiClientBundle/Resources/public/js/app.js"
+"@AcmeApiClientBundle/Resources/public/js/app-controller.js"
+"@AcmeApiClientBundle/Resources/public/js/app-services.js"
+%}
+
+<script src="{{ asset_url }}" type="text/javascript"></script>
+
+{% endjavascripts %}
+
+
+
+</body>
+
+</html>

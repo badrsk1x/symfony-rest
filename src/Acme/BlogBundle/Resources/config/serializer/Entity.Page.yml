@@ -1,0 +1,27 @@
+Acme\BlogBundle\Entity\Page:
+  exclusion_policy: ALL
+  xml_root_name: page
+  properties:
+    title:
+      expose: true
+      type: string
+      groups: [standard, restapi]
+    secret:
+      expose: false
+      type: string
+      groups: [restapi]
+    body:
+      expose: true
+      type: string
+      groups: [standard, restapi]
+    id:
+      expose: false
+      type: integer
+      groups: [restapi]
+  relations:
+    - rel: self
+      href:
+        route: api_get_page
+        parameters:
+          id: expr(object.getId())
+        absolute: true
